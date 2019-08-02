@@ -21,11 +21,16 @@ public class Box extends GameObject implements Movable, Collisionable {
     public void draw(Graphics graphics) {
         graphics.setColor(Color.ORANGE);
 
-        int x = getX(), y = getY(), upperLeftCornerX = x - Model.FIELD_CELL_SIZE / 2, upperLeftCornerY = y - Model.FIELD_CELL_SIZE / 2;
+        int x = getX(),
+                y = getY(),
+                upperLeftCornerX = x - Model.FIELD_CELL_SIZE / 2,
+                upperLeftCornerY = y - Model.FIELD_CELL_SIZE / 2,
+                deltaX = upperLeftCornerX + Model.FIELD_CELL_SIZE,
+                deltaY = upperLeftCornerY + Model.FIELD_CELL_SIZE;
 
         graphics.drawRect(upperLeftCornerX, upperLeftCornerY, getWidth(), getHeight());
-        graphics.drawLine(upperLeftCornerX, upperLeftCornerY, upperLeftCornerX + Model.FIELD_CELL_SIZE, upperLeftCornerY + Model.FIELD_CELL_SIZE);
-        graphics.drawLine(upperLeftCornerX + Model.FIELD_CELL_SIZE, upperLeftCornerY, upperLeftCornerX, upperLeftCornerY + Model.FIELD_CELL_SIZE);
+        graphics.drawLine(upperLeftCornerX, upperLeftCornerY, deltaX, deltaY);
+        graphics.drawLine(deltaX, upperLeftCornerY, upperLeftCornerX, deltaY);
     }
 
     @Override
