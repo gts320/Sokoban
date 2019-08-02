@@ -50,9 +50,9 @@ public class Player extends GameObject implements Movable {
         return deltaY;
     }
 
-    <T extends Collisionable> boolean isCollision(List<T> objectSet, Class<T> classOfSetParameter, Direction direction, int shiftDistanceX, int shiftDistanceY) {
+    <T extends Collisionable> boolean isCollision(List<T> objectSet, Class<T> classOfSetParameter,
+                                                  Direction direction, int shiftDistanceX, int shiftDistanceY) {
         int deltaX = getDeltaXRelativePlayer(direction), deltaY = getDeltaYRelativePlayer(direction);
-
         T gameObject = null;
 
         try {

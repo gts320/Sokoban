@@ -38,7 +38,9 @@ class LevelLoader {
 
                         for (int x = 0; x < s.length(); x++) {
                             char c = s.charAt(x);
-                            int xForAllGameObject = x * Model.FIELD_CELL_SIZE + halfFieldCellSize, yForAllGameObject = y * Model.FIELD_CELL_SIZE + halfFieldCellSize;
+                            int xForAllGameObject = x * Model.FIELD_CELL_SIZE + halfFieldCellSize,
+                                    yForAllGameObject = y * Model.FIELD_CELL_SIZE + halfFieldCellSize;
+
                             if (c != ' ') {
                                 if (c == 'X')
                                     walls.add(new Wall(xForAllGameObject, yForAllGameObject));
@@ -53,7 +55,6 @@ class LevelLoader {
                                     player = new Player(xForAllGameObject, yForAllGameObject);
                             }
                         }
-
                         y++;
                     }
                 }
@@ -61,6 +62,7 @@ class LevelLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         return new GameObjects(walls, boxes, homes, player);
     }
 }
